@@ -5,8 +5,8 @@
 # Categorical Variable: column chart. countplot (seaborn), bar(matplotlib)
 # Numerical Variable: hist, boxplot
 
-# CATEGORICAL VARIABLE VISUALIZATION:
 
+# CATEGORICAL VARIABLE VISUALIZATION:
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
@@ -19,11 +19,14 @@ df["sex"].value_counts().plot(kind='bar')
 plt.show(block=True)
 
 
+# NUMERICAL VARIABLE VISUALIZATION:
+# hist:
+plt.hist(df["age"])
+plt.show(block=True)
 
-
-
-
-
+# boxplot:
+plt.boxplot(df["fare"])
+plt.show(block=True)
 
 
 
