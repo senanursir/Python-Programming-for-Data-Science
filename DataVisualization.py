@@ -1,12 +1,9 @@
 # DATA VISUALİZATION: MATPLOTLIB & SEABORN
-
-# MATPLOTLIB:
-
 # Categorical Variable: column chart. countplot (seaborn), bar(matplotlib)
 # Numerical Variable: hist, boxplot
 
+# MATPLOTLIB: ----------------------------------------------------------------------------
 
-# CATEGORICAL VARIABLE VISUALIZATION:
 import pandas as pd
 import seaborn as sns
 import numpy as np
@@ -18,6 +15,8 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.width', 500)
 df = sns.load_dataset("titanic")
 df.head()
+
+# CATEGORICAL VARIABLE VISUALIZATION:
 
 df["sex"].value_counts().plot(kind='bar')
 plt.show(block=True)
@@ -77,7 +76,7 @@ plt.plot(x)
 plt.plot(y)
 plt.show(block=True)
 
-# LABELS:
+# labels:
 x = np.array([80, 85, 90, 95, 100, 105, 110, 115, 120, 125])
 y = np.array([240, 250, 260, 270, 280, 290, 300, 310, 320, 330])
 plt.plot(x, y)
@@ -117,3 +116,26 @@ plt.plot(x, y)
 # import matplotlib
 # matplotlib.use("Qt5Agg")
 # from matplotlib import pyplot as plt
+
+# SEABORN: ----------------------------------------------------------------------------
+
+import seaborn as sns
+import pandas as pd
+import matplotlib
+matplotlib.use("TkAgg")
+from matplotlib import pyplot as plt
+df = sns.load_dataset("tips")
+df.head()
+
+# CATEGORICAL VARIABLE VISUALIZATION:
+
+df["sex"].value_counts()     # categorical
+sns.countplot(x=df["sex"], data=df)    # variable we want to visualization, dataset.
+plt.show()
+
+# NUMERICAL VARIABLE VISUALIZATION:
+sns.boxplot(x=df["total_bill"])
+plt.show()
+
+df["total_bill"].hist()
+plt.show()
