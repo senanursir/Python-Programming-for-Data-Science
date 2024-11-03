@@ -36,3 +36,15 @@ check_df(df)
 
 df = sns.load_dataset("flights")
 check_df(df)
+
+# CATEGORICAL VARIABLE ANALYSIS
+df["embarked"].value_counts()
+df["sex"].unique()
+df["sex"].nunique()
+df["embarked"].nunique()
+df.info()
+
+cat_cols = [col for col in df.columns if str(df[col].dtypes) in ["category", "object", "bool"]]
+
+
+
