@@ -89,15 +89,35 @@ cat_summary(df, "sex")
 for col in cat_cols:
        cat_summary(df, col)
 
+# !summary information from a high level data needs simplicity.
+
+def cat_summary(dataframe, col_name, plot=False):
+       print(pd.DataFrame({col_name: dataframe[col_name].value_counts(),
+                           "Ratio": 100 * dataframe[col_name].value_counts() / len(dataframe)}))
+       print("##############################")
+
+       if plot:
+              sns.countplot(x=dataframe[col_name], data=dataframe)
+              plt.show(block=True )
 
 
+cat_summary(df, "sex", plot=True)
 
+for col in cat_cols:
+       if df[col].dtypes == "bool":
+              print("jblnkmldımşp")
+       else:
+              cat_summary(df, col, plot=True)
 
+df["adult_male"].astype(int)
 
+for col in cat_cols:
+       if df[col].dtypes == "bool":
+              df["adult_male"].astype(int)
+              cat_summary(df, col, plot=True)
 
-
-
-
+       else:
+              cat_summary(df, col, plot=True)
 
 
 
